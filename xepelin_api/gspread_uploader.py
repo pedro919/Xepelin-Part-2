@@ -14,7 +14,7 @@ def upload_dataframe_to_google_spread_sheet(df):
     "type": os.environ.get("GSPREAD_TYPE"),
     "project_id": os.environ.get("GSPREAD_PROJECT_ID"),
     "private_key_id" : os.environ.get("GSPREAD_PRIVATE_KEY_ID"),
-    "private_key": os.environ.get("GSPREAD_PRIVATE_KEY"),
+    "private_key": os.environ.get("GSPREAD_PRIVATE_KEY").replace("'\\'", "'\'"),
     "client_email": os.environ.get("GSPREAD_CLIENT_EMAIL"),
     "client_id": os.environ.get("GSPREAD_CLIENT_ID"),
     "auth_uri": os.environ.get("GSPREAD_AUTH_URI"),
