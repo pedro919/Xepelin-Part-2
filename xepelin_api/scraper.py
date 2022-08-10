@@ -3,8 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 import pandas as pd
 import os
-import gspread
-from gspread_dataframe import set_with_dataframe
+from xepelin_api.gspread_uploader import upload_dataframe_to_google_spread_sheet
 
 
 def blog_scraper(url):
@@ -36,17 +35,4 @@ def blog_scraper(url):
         posts_list.append(post_dict)
 
     df = pd.DataFrame(posts_list)
-    print(df)
-    credentials = { 
-    "type": os.getenv("GSPREAD_TYPE"),
-    "project_id": os.getenv("GSPREAD_PROJECT_ID"),
-    "private_key_id" : os.getenv("GSPREAD_PRIVATE_KEY_ID"),
-    "private_key": os.getenv("GSPREAD_PRIVATE_KEY"),
-    "client_email": os.getenv("GSPREAD_CLIENT_EMAIL"),
-    "client_id": os.getenv("GSPREAD_CLIENT_ID"),
-    "auth_uri": os.getenv("GSPREAD_AUTH_URI"),
-    "token_uri": os.getenv("GSPREAD_TOKEN_URI"),
-    "auth_provider_x509_cert_url": os.getenv("GSPREAD_AUTH_PROVIDER_X509_CERT_URL"),
-    "client_x509_cert_url": os.getenv("GSPREAD_CLIENT_X509_CERT_URL")}
-    gc = gspread.service_account_from_dict(credentials)
-    print(gc)
+    upload_dataframe_to_google_spread_sheet(df)
