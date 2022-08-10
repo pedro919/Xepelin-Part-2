@@ -1,5 +1,6 @@
 from ninja import NinjaAPI
 from xepelin_api.schema import InputSchema, Message, BorrameSchema
+from xepelin_api.scraper import blog_scraper
 import requests
 
 api = NinjaAPI()
@@ -17,4 +18,5 @@ def blog_scraper_endpoint(request, data: InputSchema):
 
 @api.post('borrame')
 def borrame(request, data: BorrameSchema):
+    blog_scraper()
     return data
