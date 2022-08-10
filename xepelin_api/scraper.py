@@ -1,10 +1,9 @@
 from selenium import webdriver, common
 from selenium.webdriver.common.by import By
+from xepelin_api.gspread_uploader import upload_dataframe_to_google_spread_sheet
 import time
 import pandas as pd
 import os
-import gspread
-from gspread_dataframe import set_with_dataframe
 
 def blog_scraper(url):
     chrome_options = webdriver.ChromeOptions()
@@ -35,5 +34,4 @@ def blog_scraper(url):
         posts_list.append(post_dict)
 
     df = pd.DataFrame(posts_list)
-    print(df)
-    print("Finished!")
+    upload_dataframe_to_google_spread_sheet(df)
