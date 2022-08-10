@@ -17,6 +17,7 @@ gspread-dataframe==3.3.0
 gunicorn==20.1.0
 h11==0.13.0
 idna==3.3
+loguru==0.6.0
 numpy==1.23.1
 oauthlib==3.2.0
 outcome==1.2.0
