@@ -18,5 +18,5 @@ def blog_scraper_endpoint(request, data: InputSchema):
 
 @api.post('borrame')
 def borrame(request, data: BorrameSchema):
-    blog_scraper()
+    blog_scraper('https://xepelin.com/blog/emprendedores')
     return data
