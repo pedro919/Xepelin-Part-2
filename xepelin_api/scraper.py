@@ -1,9 +1,7 @@
 from selenium import webdriver, common
 from selenium.webdriver.common.by import By
 import time
-import pandas as pd
 import os
-from xepelin_api.gspread_uploader import upload_dataframe_to_google_spread_sheet
 
 
 def blog_scraper(url):
@@ -34,5 +32,4 @@ def blog_scraper(url):
         post_dict = {'Titular': title, 'Categoría': category, 'Autor': author, 'Fecha de publicación': release_date}
         posts_list.append(post_dict)
 
-    df = pd.DataFrame(posts_list)
-    upload_dataframe_to_google_spread_sheet(df)
+    return posts_list

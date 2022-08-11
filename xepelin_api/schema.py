@@ -1,12 +1,15 @@
 from ninja import Schema
 
-class InputSchema(Schema):
+class SignleCategoryInputSchema(Schema):
     category: str
+    webhook: str
+
+class AllCategoriesInputSchema(Schema):
     webhook: str
 
 class Message(Schema):
     message: str
 
 class BorrameSchema(Schema):
-    gspread_link: str
+    link: str
     email: str
