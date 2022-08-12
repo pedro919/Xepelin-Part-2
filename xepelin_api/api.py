@@ -1,5 +1,5 @@
 from ninja import NinjaAPI
-from xepelin_api.schema import SignleCategoryInputSchema, AllCategoriesInputSchema, MessageSchema, 
+from xepelin_api.schema import SignleCategoryInputSchema, AllCategoriesInputSchema, MessageSchema
 from xepelin_api.scraper import blog_scraper
 from xepelin_api.gspread_uploader import upload_posts_to_google_spread_sheet
 import requests
