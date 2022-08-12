@@ -7,9 +7,5 @@ class SignleCategoryInputSchema(Schema):
 class AllCategoriesInputSchema(Schema):
     webhook: str
 
-class Message(Schema):
-    message: str
-
-class BorrameSchema(Schema):
-    link: str
-    email: str
+class MessageSchema(Schema):
+    msg: str
