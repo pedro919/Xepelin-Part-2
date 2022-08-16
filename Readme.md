@@ -9,7 +9,7 @@ https://salty-retreat-41066.herokuapp.com/api/docs
 
 - Pymes
 - Casos de éxito
-- Coorporativos
+- Corporativos
 - Emprendedores
 - Xepelin
   
