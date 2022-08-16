@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import exceptions
-from gspread_uploader import upload_posts_to_google_spread_sheet
+from xepelin_api.gspread_uploader import upload_posts_to_google_spread_sheet
 import os
 
 load_dotenv()
