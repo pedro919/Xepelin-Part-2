@@ -65,4 +65,4 @@ def all_categories_scrapper_function():
             child_number += 1
 
     driver.close()
-    upload_posts_to_google_spread_sheet(all_posts_list)
+    return all_posts_list
