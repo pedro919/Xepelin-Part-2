@@ -27,7 +27,7 @@ def single_category_scrapper_endpoint(request, data: SignleCategoryInputSchema):
     
 
 @api.post("/all_categories_scrapper_v1", response={200: MessageSchema, 422: MessageSchema})
-def single_category_scrapper_endpoint(request, data: AllCategoriesInputSchema):
+def all_categories_scrapper_endpoint_v1(request, data: AllCategoriesInputSchema):
     blog_categories_dict = json.loads(os.environ.get("BLOG_CATEGORIES"))
     all_posts_list = []
     for category in blog_categories_dict:
@@ -41,7 +41,7 @@ def single_category_scrapper_endpoint(request, data: AllCategoriesInputSchema):
 
 
 @api.post("/all_categories_scrapper_v2", response={200: MessageSchema, 422: MessageSchema})
-def all_categories__scrapper(request, data: AllCategoriesInputSchema):
+def all_categories_scrapper_endpoint_v2(request, data: AllCategoriesInputSchema):
     all_categories_scrapper_function()
     response = requests.post(data.webhook, json={"link": os.environ.get("GSPREAD_LINK"), "email": os.environ.get("EMAIL")})
     if response.status_code != 200:
