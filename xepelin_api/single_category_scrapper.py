@@ -4,7 +4,7 @@ import time
 import os
 
 
-def single_category_scraper_function(url):
+def single_category_scrapper_function(url):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -32,4 +32,5 @@ def single_category_scraper_function(url):
         post_dict = {'Titular': title, 'Categoría': category, 'Autor': author, 'Fecha de publicación': release_date}
         posts_list.append(post_dict)
 
+    driver.close()
     return posts_list

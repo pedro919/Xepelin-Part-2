@@ -35,7 +35,7 @@ def get_posts_information(driver, category_name):
     return posts_list
 
 
-def all_categories_scraper_function():
+def all_categories_scrapper_function():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
