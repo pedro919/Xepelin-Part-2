@@ -48,11 +48,4 @@ def all_categories_scrapper_endpoint_v1(request, data: AllCategoriesInputSchema)
 
 @api.post("/all_categories_scrapper_v2", response={200: MessageSchema, 422: MessageSchema})
 def all_categories_scrapper_endpoint_v2(request, data: AllCategoriesInputSchema):
-    try:
-        all_posts_list = all_categories_scrapper_function()
-        logger.info("PASANDO A LA SUBIR LOS ARCHIVOS")
-        logger.info(all_posts_list)
-        upload_posts_to_google_spread_sheet(all_posts_list)
-    except Exception as e:
-        logger.info(e)
-        print(e)
+    return "Debug"
