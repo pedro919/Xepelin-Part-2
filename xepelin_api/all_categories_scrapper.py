@@ -1,13 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from dotenv import load_dotenv
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import exceptions
 import os
-
-load_dotenv()
 
 
 def load_all_posts(driver):
