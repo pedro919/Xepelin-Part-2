@@ -4,7 +4,7 @@ import time
 import os
 
 
-def blog_scraper(url):
+def single_category_scraper_function(url):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
