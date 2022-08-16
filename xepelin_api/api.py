@@ -15,7 +15,6 @@ def single_category_scrapper_endpoint(request, data: SignleCategoryInputSchema):
     if data.category.lower() in blog_categories_dict:
         posts_list = single_category_scrapper_function(blog_categories_dict[data.category.lower()])
         upload_posts_to_google_spread_sheet(posts_list)
-        response = requests.post(data.webhook, json={"link": os.environ.get("GSPREAD_LINK"), "email": os.environ.get("EMAIL")})
         try: 
             response = requests.post(data.webhook, json={"link": os.environ.get("GSPREAD_LINK"), "email": os.environ.get("EMAIL")})
         except Exception as e:
