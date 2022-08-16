@@ -12,7 +12,7 @@ api = NinjaAPI()
 @api.post("/category_scrapper", response={200: MessageSchema, 422: MessageSchema})
 def single_category_scrapper_endpoint(request, data: SignleCategoryInputSchema):
     blog_categories_dict = json.loads(os.environ.get("BLOG_CATEGORIES"))
-    if data.category in blog_categories_dict:
+    if data.category.lower() in blog_categories_dict:
         posts_list = single_category_scrapper_function(blog_categories_dict[data.category])
         upload_posts_to_google_spread_sheet(posts_list)
         response = requests.post(data.webhook, json={"link": os.environ.get("GSPREAD_LINK"), "email": os.environ.get("EMAIL")})
