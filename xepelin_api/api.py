@@ -48,4 +48,10 @@ def all_categories_scrapper_endpoint_v1(request, data: AllCategoriesInputSchema)
 
 @api.post("/all_categories_scrapper_v2", response={200: MessageSchema, 422: MessageSchema})
 def all_categories_scrapper_endpoint_v2(request, data: AllCategoriesInputSchema):
-    return 200, MessageSchema(msg="Scrapper executed successfully")
+    try:
+        all_categories_scrapper_function()
+    except Exception as e:
+        logger.info(e)
+        print(e)
+    else:
+        return 200, MessageSchema(msg="Scrapper executed successfully")
