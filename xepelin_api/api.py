@@ -20,7 +20,7 @@ def single_category_scraper_endpoint(request, data: SignleCategoryInputSchema):
         upload_posts_to_google_spread_sheet(posts_list)
         response = requests.post(data.webhook, json={"link": os.environ.get("GSPREAD_LINK"), "email": os.environ.get("EMAIL")})
         if response.status_code != 200:
-            return 200, MessageSchema(msg="Scraper executed but unabled to notify")
+            return 200, MessageSchema(msg="Scraper executed but unable to notify")
         return 200, MessageSchema(msg="Scraper executed successfully")
     else:
         return 422, MessageSchema(msg="Invalid category name")
@@ -36,14 +36,14 @@ def single_category_scraper_endpoint(request, data: AllCategoriesInputSchema):
     upload_posts_to_google_spread_sheet(all_posts_list)
     response = requests.post(data.webhook, json={"link": os.environ.get("GSPREAD_LINK"), "email": os.environ.get("EMAIL")})
     if response.status_code != 200:
-        return 200, MessageSchema(msg="Scraper executed but unabled to notify")
+        return 200, MessageSchema(msg="Scraper executed but unable to notify")
     return 200, MessageSchema(msg="Scraper executed successfully")
-    
+
 
 @api.post("/all_categories_scrapper_v2", response={200: MessageSchema, 422: MessageSchema})
 def all_categories__scraper(request, data: AllCategoriesInputSchema):
     all_categories_scraper_function()
     response = requests.post(data.webhook, json={"link": os.environ.get("GSPREAD_LINK"), "email": os.environ.get("EMAIL")})
     if response.status_code != 200:
-        return 200, MessageSchema(msg="Scraper executed but unabled to notify")
+        return 200, MessageSchema(msg="Scraper executed but unable to notify")
     return 200, MessageSchema(msg="Scraper executed successfully")
