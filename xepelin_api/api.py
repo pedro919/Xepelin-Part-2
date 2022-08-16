@@ -26,7 +26,7 @@ def single_category_scrapper_endpoint(request, data: SignleCategoryInputSchema):
         return 422, MessageSchema(msg="Invalid category name")
     
 
-@api.post("/all_categories_scrapper", response={200: MessageSchema, 422: MessageSchema})
+@api.post("/all_categories_scrapper_v1", response={200: MessageSchema, 422: MessageSchema})
 def single_category_scrapper_endpoint(request, data: AllCategoriesInputSchema):
     blog_categories_dict = json.loads(os.environ.get("BLOG_CATEGORIES"))
     all_posts_list = []
